@@ -96,14 +96,14 @@ Perform an action on the vehicle. The service takes a VIN and the action to perf
 
 When an action is successfully performed, an update request is automatically triggered. 
 
-Example Dashboard Card
+Example Dashboard Cards
 ----------------------
 
 Below is an example Dashboard (Lovelace) card illustrating some of the sensors this Home Assistant addon provides. 
 
 ![Example Dashboard Card](card_example.png)
 
-The card requires the following front end mods:
+The cards require the following front end mods:
 - https://github.com/thomasloven/lovelace-card-mod
 - https://github.com/custom-cards/circle-sensor-card
 
@@ -215,12 +215,100 @@ The card uses the following code in `ui-lovelace.yaml` (or wherever your Dashboa
             transform: none
 ```
 
+![image](https://github.com/arjenvrh/audi_connect_ha/assets/116392836/69a86263-d6bd-4c2b-80ed-32124544342b)
+
+```yaml
+type: picture-elements
+image: /local/AudiA4.png
+elements:
+  - type: state-icon
+    icon: mdi:shield-car
+    entity: lock.audi_a4_avant_door_lock
+    tap_action:
+      action: toggle
+    style:
+      left: 12%
+      top: 86%
+      '--paper-item-icon-color': white
+      '--paper-item-icon-active-color': red
+  - type: state-label
+    entity: lock.audi_a4_avant_door_lock
+    style:
+      color: white
+      left: 12%
+      top: 95%
+  - type: icon
+    icon: mdi:mirror-rectangle
+    entity: binary_sensor.audi_a4_avant_windows
+    style:
+      color: white
+      left: 32%
+      top: 86%
+  - type: state-label
+    entity: binary_sensor.audi_a4_avant_windows
+    style:
+      color: white
+      left: 32%
+      top: 95%
+  - type: icon
+    entity: sensor.audi_a4_avant_mileage
+    icon: mdi:car-clock
+    style:
+      color: white
+      left: 52%
+      top: 86%
+  - type: state-label
+    entity: sensor.audi_a4_avant_mileage
+    style:
+      color: white
+      left: 52%
+      top: 95%
+  - type: icon
+    icon: mdi:car-wrench
+    entity: sensor.audi_a4_avant_service_inspection_distance
+    style:
+      color: white
+      left: 72%
+      top: 86%
+  - type: state-label
+    entity: sensor.audi_a4_avant_service_inspection_distance
+    style:
+      color: white
+      left: 72%
+      top: 95%
+  - type: icon
+    icon: mdi:gas-station
+    entity: sensor.audi_a4_avant_tank_level
+    style:
+      color: white
+      left: 90%
+      top: 86%
+  - type: state-label
+    entity: sensor.audi_a4_avant_tank_level
+    style:
+      color: white
+      left: 90%
+      top: 95%
+  - type: state-badge
+    entity: sensor.audi_a4_avant_range
+    style:
+      color: transparent
+      right: 1%
+      top: 1%
+      transform: scale(0.7,0.7)
+      '--label-badge-red': gray
+      '--label-badge-background-color': transparent
+      '--ha-label-badge-label-color': white
+      '--label-badge-text-color': white
+```
+
 [buymecoffee]: https://buymeacoff.ee/arjenvrh
 [buymecoffeebadge]: https://img.shields.io/badge/buy%20me%20a%20beer-donate-yellow.svg?style=for-the-badge
 [commits-shield]: https://img.shields.io/github/commit-activity/y/arjenvrh/audi_connect_ha?style=for-the-badge
 [commits]: https://github.com/arjenvrh/audi_connect_ha/commits/master
 [hacs]: https://github.com/custom-components/hacs
-[hacsbadge]: https://img.shields.io/badge/HACS-Default-orange.svg?style=for-the-badge
+[hacsbadge]: https://img.shields.io/badge/HACS-Def![Uploading image.png…]()
+ault-orange.svg?style=for-the-badge
 [license-shield]: https://img.shields.io/github/license/arjenvrh/audi_connect_ha?style=for-the-badge
 [maintenance-shield]: https://img.shields.io/badge/maintainer-Arjen%20van%20Rhijn%20%40arjenvrh-blue.svg?style=for-the-badge
 [blackbadge]: https://img.shields.io/badge/code%20style-black-000000.svg?style=for-the-badge
